@@ -38,7 +38,8 @@ LINODE_SERVER_HOSTNAME = '72.14.184.184'
 
 set :bundle_flags,               "--deployment"
 
-set :application,                "railsrumble"
+set :application,                "churumelas"
+set :hostname,                   "churumelas.r12.railsrumble.com"
 set :deploy_to,                  "/var/www/apps/railsrumble"
 set :normalize_asset_timestamps, false
 set :rails_env,                  "production"
