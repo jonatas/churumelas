@@ -9,7 +9,7 @@ class GameChallengeTest < ActiveSupport::TestCase
    end
    test "Game should have many challenges" do
      @game.start!
-     @game.should have(1).game_challenges
+     assert_equal 1, @game.game_challenges.size
    end
 
    teardown do
