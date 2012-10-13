@@ -73,6 +73,9 @@ after 'deploy:update_code' do
   # Setup Configuration
   run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
 
+  sudo "chown www-data:www-data #{release_path}/config/database.yml"
+  puts IO.read"#{release_path}/config/database.yml"
+
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
@@ -82,7 +85,6 @@ deploy.task :restart, :roles => :app do
   # Fix Permissions
   sudo "chown -R www-data:www-data #{current_path}"
   sudo "chown -R www-data:www-data #{latest_release}"
-  sudo "chown www-data:www-data #{current_path}/config/database.yml"
   sudo "chown -R www-data:www-data #{shared_path}/bundle"
   sudo "chown -R www-data:www-data #{shared_path}/log"
 
