@@ -2,6 +2,7 @@ Churumelas::Application.routes.draw do
   get "game/start"
 
   post "game/answer"
+  post "game/start_typing"
 
   get "game/next_level"
 

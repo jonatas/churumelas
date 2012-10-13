@@ -10,6 +10,10 @@ class GameController < ApplicationController
       redirect_to :action => :start
     end
   end
+  def start_typing
+    puts "start tying at #{Time.now}"
+    render :json => {:sucess => true}.to_json
+  end
 
   def next_level
     if not session[:level]
