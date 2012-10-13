@@ -3,7 +3,7 @@ class GameController < ApplicationController
   def start
     if not @challenge
       flash[:message] = "Looks like you're awesome!"
-      render :template => :finish
+      render 'finish'
     end
   end
   def answer
@@ -11,7 +11,7 @@ class GameController < ApplicationController
       redirect_to :action => :start
     else
       flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
-      render :template => :start
+      render 'start'
     end
   end
   def start_typing
@@ -31,13 +31,11 @@ class GameController < ApplicationController
     if params[:game_challenge_id]
       @game_challenge  = GameChallenge.find params[:game_challenge_id]
     else
-      if not @game_challenge and not @game
-        @game = Game.new
-        @game_challenge = @game.start!
-      else
-        @game_challenge = @game.next_challenge!
-      end
+      @game = Game.new
+      @game_challenge = @game.start!
     end
-    @challenge = @game_challenge.challenge
+    if @game_challenge
+      @challenge = @game_challenge.challenge
+    end
   end
 end
