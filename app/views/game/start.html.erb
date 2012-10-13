@@ -1,6 +1,7 @@
 <pre class="title big" data-language="ruby"><%= @challenge.title %></pre>
 <p class="description"><%= h @challenge.description %></p>
 <form action="/game/answer" method="post">
+  <%= hidden_field_tag :game_challenge_id, @game_challenge.id %>
   <input type="text" name="console[code]" id="console" />
 </form>
 <pre data-language="ruby">
@@ -12,4 +13,3 @@
   </p>
 </small>
 <%= image_tag @challenge.image_url, :class => "assistant" %></a>
-

@@ -4,13 +4,15 @@ class GameControllerTest < ActionController::TestCase
   test "should get start" do
     get :start
     assert_response :success
-    assert assigns(:challenge)
+    assert assigns(:game_challenge)
     assert assigns(:game)
+    assert assigns(:challenge)
   end
   
   test "should start by typing start" do
     post(:answer, :console => { :code => "start" })
-    assert_redirected_to :action => "next_level" 
+    assert assigns(:challenge)
+    assert_redirected_to :action => "start"
   end
   test "should not start by typing other tries" do
     bad_words = %w(nil start! \ start `` eval system)

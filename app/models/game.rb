@@ -20,5 +20,6 @@ class Game < ActiveRecord::Base
     start_it = GameChallenge.new
     start_it.challenge = challenge
     self.game_challenges << start_it
+    current_challenge
   end
 end
