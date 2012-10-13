@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div id="logo">
+    <a href="/game/start"><%= image_tag "logo-medium.png" %></a>
+  </div>
   <% flash.each do |key, value| %>
     <div class="flash <%= key %>"><%= value %></div>
   <% end %>
