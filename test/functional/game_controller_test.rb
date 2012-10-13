@@ -10,6 +10,12 @@ class GameControllerTest < ActionController::TestCase
     post(:answer, :console => { :code => "start" })
     assert_redirected_to :action => "next_level" 
   end
+  test "should not start by typing other tries" do
+    post(:answer, :console => { :code => "strat" })
+
+    assert_not_nil  flash[:message]
+    assert_redirected_to :action => "start" 
+  end
 
   test "should get next_level" do
     get :next_level
