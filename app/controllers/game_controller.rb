@@ -1,5 +1,8 @@
 class GameController < ApplicationController
   def start
+    @game = Game.new
+    @game.username = "Anonymous"
+
     @challenge = Challenge.first
   end
   

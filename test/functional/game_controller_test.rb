@@ -4,6 +4,8 @@ class GameControllerTest < ActionController::TestCase
   test "should get start" do
     get :start
     assert_response :success
+    assert assigns(:challenge)
+    assert assigns(:game)
   end
   
   test "should start by typing start" do
