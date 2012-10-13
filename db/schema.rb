@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013134403) do
+ActiveRecord::Schema.define(:version => 20121013185457) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(:version => 20121013134403) do
     t.string   "tags"
     t.string   "image_url"
     t.string   "background_image_url"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.text     "last_compiling_error"
+    t.text     "last_compiling_error_trace"
+    t.integer  "tries_before_sucess",        :default => 0
   end
 
   create_table "game_challenges", :force => true do |t|
