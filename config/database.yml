@@ -19,3 +19,4 @@ production:
   database: xurumelas_production
   user: root
   password: xurumelas
+  socket: /var/run/mysqld/mysqld.sock
