@@ -12,7 +12,23 @@ class GameChallengeTest < ActiveSupport::TestCase
      assert_equal 1, @game.game_challenges.size
      assert @game.next_challenge!
      assert_equal 2, @game.game_challenges.size
-     assert @game.current_challenge.valid_answer? "match? %r{:[\)\]]}"
+     oks = [
+      "self.match %r{:[\)\]]}",
+      "self.match /:[\)\]]/"
+     ]
+     oks.each do |ok|
+       assert @game.current_challenge.valid_answer? ok
+     end
+     invalids = ["","  ", ":)|:]"]
+     invalids.each do |invalid_answer|
+        assert(!@game.current_challenge.valid_answer?(invalid_answer))
+     end
+     raises = [
+      "self.match? /:[\)\]]/"
+     ]
+     raises.each do |invalid_code|
+       assert_raise @game.current_challenge.valid_answer? invalid_code
+     end
    end
 
    teardown do

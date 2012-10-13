@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #   http://churumelas.r12.railsrumble.com/
+Challenge.destroy_all
 @start = Challenge.new
 @start.title = "@you.can_start? # => return true"
 @start.description = %q{Show me the world! Type "start" to face your first challenge!}
@@ -31,13 +32,14 @@ String.class_eval do
     # your code here
   end
 end
-assert ":)".happy?
-assert ":]".happy?
+raise "Your first cog fail!" if not ":)".happy?
+raise ":] is happy?" if not ":]".happy?
 }
 @second.code_help = %q{Imagine you are working on ASCOG Inc. and your next challenge is code an ASC smile recognition trying to idenfiy humam reactions in a natural language. I expect you use String#match? method.}
-@second.correct_answer = lambda { match? %r{:[\)\]]} }
+@second.correct_answer = /:\[\)\]/
 @second.tags = "ruby regexp ascog"
 @second.image_url = "regexp.png"
 @second.background_image_url = "second-background.png"
+p @second
 @second.save
 

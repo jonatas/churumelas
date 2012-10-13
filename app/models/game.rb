@@ -5,10 +5,15 @@ class Game < ActiveRecord::Base
     start_this! Challenge.first
   end
   def next_challenge!
-    start! and return if not (last_challenge = game_challenges.last.challenge)
+    start! and return if not (last_challenge = current_challenge)
     if (next_challenge = last_challenge.next_challenge)
       start_this! next_challenge
+    else
+      puts "You finish!"
     end
+  end
+  def current_challenge
+    game_challenges.last.challenge if game_challenges.last
   end
   private
   def start_this! challenge
