@@ -10,8 +10,11 @@ body {
     color: darken($white, 9%);
     font-family: monospace;
 }
-h1 {
+.title {
   margin-left: 80px;
+}
+.big {
+  font-size: 170%;
 }
 #logo {
   float: left;
