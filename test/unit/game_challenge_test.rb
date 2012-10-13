@@ -13,21 +13,19 @@ class GameChallengeTest < ActiveSupport::TestCase
      assert @game.next_challenge!
      assert_equal 2, @game.game_challenges.size
      oks = [
-      "self.match %r{:[\)\]]}",
-      "self.match /:[\)\]]/"
+      "self.match /:\\)|:\\]/"
      ]
      oks.each do |ok|
-       assert @game.current_challenge.valid_answer? ok
-     end
-     invalids = ["","  ", ":)|:]"]
-     invalids.each do |invalid_answer|
-        assert(!@game.current_challenge.valid_answer?(invalid_answer))
+       assert @game.current_challenge.valid_answer?(ok), "Implementation #{ok.inspect} doesnt work yet"
      end
      raises = [
-      "self.match? /:[\)\]]/"
+      ": )",
+      "self match? /:[)]]/"
      ]
      raises.each do |invalid_code|
-       assert_raise @game.current_challenge.valid_answer? invalid_code
+       assert_raise SyntaxError do
+         @game.current_challenge.valid_answer?(invalid_code)
+       end
      end
    end
 
