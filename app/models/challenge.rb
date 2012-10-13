@@ -3,5 +3,8 @@ class Challenge < ActiveRecord::Base
   def valid_answer? answer
     correct_answer.is_a? String and correct_answer == answer
   end
+  def next_challenge
+    Challenge.where("id > ?", id).order("id asc").limit(1).first
+  end
 end
 

@@ -9,7 +9,7 @@
 @start = Challenge.new
 @start.title = "@you.can_start? # => return true"
 @start.description = %q{Show me the world! Type "start" to face your first challenge!}
- @start.code_challenge = %q{if @challenge.valid_answer? params[:console][:code]
+@start.code_challenge = %q{if @challenge.valid_answer? params[:console][:code]
   redirect_to :action =>:next_level
 else
   flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
@@ -21,4 +21,23 @@ end}
 @start.image_url = "start.png"
 @start.background_image_url = "start-background.png"
 @start.save
+
+@second = Challenge.new
+@second.title = %q{":)".happy? # => return true}
+@second.description = %q{It's time to enjoy building awesome regular expressions!!}
+@second.code_challenge = %q{
+String.class_eval do
+  def happy?
+    # your code here
+  end
+end
+assert ":)".happy?
+assert ":]".happy?
+}
+@second.code_help = %q{Imagine you are working on ASCOG Inc. and your next challenge is code an ASC smile recognition trying to idenfiy humam reactions in a natural language. I expect you use String#match? method.}
+@second.correct_answer = lambda { match? %r{:[\)\]]} }
+@second.tags = "ruby regexp ascog"
+@second.image_url = "regexp.png"
+@second.background_image_url = "second-background.png"
+@second.save
 
