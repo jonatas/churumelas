@@ -40,3 +40,13 @@ gem 'capistrano'
 group :production do
   gem 'therubyracer'
 end
+group :test do
+  gem "spork"
+  gem "ZenTest"
+  gem "autotest-rails"
+  gem "guard-jruby-rspec"
+  gem 'rb-fsevent', '~> 0.9.1'
+  gem 'autotest-standalone'
+  gem 'autotest-fsevent'
+  gem 'autotest-growl'
+end
