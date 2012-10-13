@@ -7,16 +7,25 @@ class GameController < ApplicationController
     end
   end
   def answer
-    if @game_challenge.pass_with! params[:console][:code]
-      redirect_to :action => :start
+    puts @game_challenge.challenge.title
+    if @game_challenge.pass_with!(params[:console][:code])
+      next_challenge = @game_challenge.game.next_challenge!
+      puts next_challenge.challenge.title
+      @game_challenge = next_challenge
+      flash[:message] = "Congratulations!"
+      @game_challenge = next_challenge
+      render 'start'
     else
-      flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
+      if not flash[:error] = @game_challenge.last_compiling_error
+        flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
+      end
       render 'start'
     end
   end
   def start_typing
     puts "start tying at #{Time.now}"
     @game_challenge.start_typing = Time.now
+    @game_challenge.save
     render :json => {:sucess => @game_challenge.save }.to_json
   end
 
@@ -28,11 +37,13 @@ class GameController < ApplicationController
 
   protected
   def load_game_challenge
-    if params[:game_challenge_id]
-      @game_challenge  = GameChallenge.find params[:game_challenge_id]
-    else
+    if params[:game_challenge_id].blank?
       @game = Game.new
+      @game.username = "not defined"
+      @game.save
       @game_challenge = @game.start!
+    else
+      @game_challenge  = GameChallenge.find params[:game_challenge_id]
     end
     if @game_challenge
       @challenge = @game_challenge.challenge
