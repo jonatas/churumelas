@@ -29,7 +29,7 @@ require 'bundler/capistrano'
 #############################################
 
 GITHUB_REPOSITORY_NAME = 'r12-team-370'
-LINODE_SERVER_HOSTNAME = 'dallas373.linode.com'
+LINODE_SERVER_HOSTNAME = '72.14.184.184'
 
 #############################################
 #############################################
@@ -52,7 +52,7 @@ set :admin_runner,               "www-data"
 # 1. Locate your local public SSH key file. (Usually ~/.ssh/id_rsa.pub)
 # 2. Execute the following locally: (You'll need your Linode server's root password.)
 #
-#    cat ~/.ssh/id_rsa.pub | ssh root@LINODE_SERVER_HOSTNAME "cat >> ~/.ssh/authorized_keys"
+#    cat ~/.ssh/id_rsa.lub | ssh root@LINODE_SERVER_HOSTNAME "cat >> ~/.ssh/authorized_keys"
 #
 # 3. Uncomment the below ssh_options[:keys] line in this file.
 #
