@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $white: #fff;
 $black: #000;
+$console_height: 40px;
 
 body {
     background-color: $black;
@@ -16,4 +17,13 @@ h1 {
   float: left;
   width: 10%; 
 }
-
+input#console {
+  width: 70%; 
+  height: $console_height;
+  background-color: black;
+  color: white;
+  font-size: $console_height; 
+  cursor-color: green;
+  display: inline-block;
+  text-align: -webkit-auto;
+}
