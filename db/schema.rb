@@ -22,11 +22,8 @@ ActiveRecord::Schema.define(:version => 20121013185457) do
     t.string   "tags"
     t.string   "image_url"
     t.string   "background_image_url"
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
-    t.text     "last_compiling_error"
-    t.text     "last_compiling_error_trace"
-    t.integer  "tries_before_sucess",        :default => 0
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "game_challenges", :force => true do |t|
@@ -37,8 +34,11 @@ ActiveRecord::Schema.define(:version => 20121013185457) do
     t.datetime "submit_first_time_at"
     t.datetime "pass_level_at"
     t.text     "user_answer"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.text     "last_compiling_error"
+    t.text     "last_compiling_error_trace"
+    t.integer  "tries_before_sucess",        :default => 0
   end
 
   add_index "game_challenges", ["challenge_id"], :name => "index_game_challenges_on_challenge_id"
