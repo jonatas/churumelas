@@ -19,7 +19,7 @@ end}
 @start.code_help = %q{Imagine you are coding a system like me and want to be redirected to the first level you will need to pass the correct word.}
 @start.correct_answer = "start"
 @start.tags = "ruby beginner"
-@start.image_url = "start.png"
+@start.image_url = "feliz.png"
 @start.background_image_url = "start-background.png"
 @start.save
 
@@ -38,7 +38,7 @@ raise ":] is happy?" if not ":]".happy?
 @second.code_help = %q{Imagine you are working on ASCOG Inc. and your next challenge is code an ASC smile recognition trying to idenfiy humam reactions in a natural language. I expect you use String#match? method.}
 @second.correct_answer = /:\[\)\]/
 @second.tags = "ruby regexp ascog"
-@second.image_url = "regexp.png"
+@second.image_url = "euforico.png"
 @second.background_image_url = "second-background.png"
 p @second
 @second.save
