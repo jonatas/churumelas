@@ -8,14 +8,12 @@
   Imagine you're coding a system like me and to be redirected to the first level you will need to pass the correct word.  
   </p>
 </small>
-<pre>
-<code data-language="ruby">
+<pre data-language="ruby">
  if params[:console][:code] == "start"
    redirect_to :action =>:first_level
   else
     flash[:message] = "Come on! ..."
     redirect_to :action => :start
   end
-</code>
 </pre>
 
