@@ -1,5 +1,21 @@
 <h1>Game#start</h1>
 <p class="description">Show me the world! Type "start" to face your first challenge!</p>
-<form action="/answer">
+<form action="/game/answer" method="post">
   <input type="text" name="console[code]" id="console" />
 </form>
+<small>
+  <p class="description">
+  Imagine you're coding a system like me and to be redirected to the first level you will need to pass the correct word.  
+  </p>
+</small>
+<pre>
+<code data-language="ruby">
+ if params[:console][:code] == "start"
+   redirect_to :action =>:first_level
+  else
+    flash[:message] = "Come on! ..."
+    redirect_to :action => :start
+  end
+</code>
+</pre>
+
