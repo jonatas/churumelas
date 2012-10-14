@@ -40,6 +40,27 @@ raise ":] is happy?" if not ":]".happy?
 @second.tags = "ruby regexp ascog"
 @second.image_url = "euforico.png"
 @second.background_image_url = "second-background.png"
-p @second
 @second.save
 
+
+@third = Challenge.new
+@third.title = %q{method(:happy?).allow? :noose # => true}
+@third.description = %q{It's time to enjoy with advanced noose recognition. Modify the code to accept all the code challenge bellow}
+@third.code_challenge = %q{
+String.class_eval do
+  def happy?
+    # your code here
+  end
+end
+[":]",":)",":-)",":-]"].each do |smile|
+  if not smile.happy?
+    raise "the #{smile} was not recognized"
+  end
+end
+}
+@third.code_help = %q{Imagine the ASCOG Inc. is so pragmatic and you need to use the best solution around it. Remember the noose is an alternative. I expect you use String#match? method.}
+@third.correct_answer = /:\[\)\]/
+@third.tags = "ruby regexp ascog"
+@third.image_url = "amigo-esperando.png"
+@third.background_image_url = "third-background.png"
+@third.save
