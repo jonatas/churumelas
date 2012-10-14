@@ -3,7 +3,7 @@ class Fifth
     def level; 5; end
     def title ; %q{"8-0".scared?} end
     def description
-      %q{I really know your regexp and ruby skills is getting a lot of opportunities to refactor and do a good job. Now let's trying to get it in the final regexp contest. Building multiple groups with expressions in the same expression. You can use `/?'mouth'\)\|\\\|` and other groups to mouth and noose. Your main objective is allow smile in other sense}
+      %q{Now let's trying to get it in the final regexp contest. Building multiple groups with expressions in the same expression. You can use `/?'mouth'\)\|\\\|` and other groups to mouth and noose. Your main objective is allow smile in other sense}
     end
     def code_challenge
 %q{
