@@ -19,6 +19,8 @@ class GameChallenge < ActiveRecord::Base
   end
 
   def valid_answer? answer
+    self.tries_before_sucess += 1
+    @user_answer = answer
     if correct_answer.is_a? String 
       logger.info "valid_answer? #{correct_answer.inspect} == #{answer.inspect}"
       return correct_answer == answer
@@ -35,9 +37,23 @@ class GameChallenge < ActiveRecord::Base
     end
     return true 
   end
+  def read_question_time
+    start_typing_at - started_at if start_typing_at
+  end
+  def write_answer_time
+   pass_level_at - started_at  if pass_level_at
+  end
+  def score
+    #puts "return 0 if not #{@user_answer.nil?} or not #{pass_level_at.nil?} or not #{start_typing_at.nil?}"
+    return 0 if not @user_answer or not pass_level_at or not start_typing_at
+    ( 
+     (challenge.description.to_s.size + correct_answer.to_s.size + @user_answer.to_s.size) /
+         (read_question_time * write_answer_time)  /
+             tries_before_sucess
+    ).to_i.abs
+  end
   private
   def register_error e
-    self.tries_before_sucess += 1
     self.last_compiling_error, 
       self.last_compiling_error_trace = e.message, e.backtrace.inspect 
 
