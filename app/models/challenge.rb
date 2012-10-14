@@ -4,4 +4,12 @@ class Challenge
   def next_challenge
     Challenges[Challenges.index(self) + 1]
   end
+  def self.first 
+    Challenges.first
+  end
 end
+Challenges = [
+  StartFirst,
+  Second,
+  Third
+]
