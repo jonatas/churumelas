@@ -32,6 +32,6 @@
     </div>
   <% end %>
 <%= yield %>
-<%= link_to "About us", "about_us", :class => "small footer"  %>
+<%= link_to "About us", "/about_us", :class => "footer left" if not params[:action] == "about_us" %>
 </body>
 </html>

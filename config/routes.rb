@@ -1,6 +1,6 @@
 Churumelas::Application.routes.draw do
   get "game/start"
-  get "about_us" => 'application#about_us'
+  get "about_us" => 'game#about_us'
   post "game/answer"
   post "game/start_typing"
 

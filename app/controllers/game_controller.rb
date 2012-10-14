@@ -43,7 +43,9 @@ class GameController < ApplicationController
 
   def scores
   end
-
+  def about_us
+    render "_about_us"
+  end
   protected
   def load_game_challenge
     p params
