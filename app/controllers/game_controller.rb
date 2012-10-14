@@ -7,14 +7,21 @@ class GameController < ApplicationController
     end
   end
   def answer
-    puts @game_challenge.challenge.title
+    puts "Answering question: #{@game_challenge.challenge.title}"
     if @game_challenge.pass_with!(params[:console][:code])
       next_challenge = @game_challenge.game.next_challenge!
-      puts next_challenge.challenge.title
-      @game_challenge = next_challenge
-      flash[:message] = "Congratulations!"
-      @game_challenge = next_challenge
-      render 'start'
+      puts "You pass! #{@game_challenge.last_answer}"
+      if next_challenge
+        puts "Going to: #{next_challenge.challenge.title}"
+        @game_challenge = next_challenge
+        flash[:message] = "Congratulations!"
+        @game_challenge = next_challenge
+        @challenge = @game_challenge.challenge
+        render 'start'
+      else
+        flash[:message] = "Congratulations! I really wait you enjoy it!"
+        render 'finish'
+      end
     else
       if not flash[:error] = @game_challenge.last_compiling_error
         flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
@@ -37,13 +44,16 @@ class GameController < ApplicationController
 
   protected
   def load_game_challenge
+    p params
     if params[:game_challenge_id].blank?
+      puts "Starting a new game!!!"
       @game = Game.new
       @game.username = "not defined"
       @game.save
       @game_challenge = @game.start!
     else
       @game_challenge  = GameChallenge.find params[:game_challenge_id]
+      puts "Game challenge found"
     end
     if @game_challenge
       @challenge = @game_challenge.challenge
