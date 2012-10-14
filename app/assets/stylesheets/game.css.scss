@@ -5,7 +5,7 @@ $white: #fff;
 $black: #000;
 $console_height: 30px;
 $title_left: 10%;
-$console_width: 50%;
+$console_width: 70%;
 
 body {
     background-color: $black;
@@ -22,6 +22,9 @@ body {
 #logo {
   float: left;
   width: 10%;
+}
+pre, .description  {
+  width: $console_width;
 }
 input#console {
   width: $console_width; 
@@ -41,17 +44,13 @@ img.assistant {
 
 .box {
   width: $console_width - $title_left;
+  height: 70px;
   margin-left: $title_left;
 }
-.message {
-  background-color: YellowGreen;
-  color: black;
-}
 .error {
-  background-color: Red;
-  background: url(/assets/error-icon.png);
+  background-color: #ED1C25;
 }
-.notice {
+.message {
+  background-color: #63BC46;
 }
-
 
