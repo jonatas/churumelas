@@ -13,7 +13,7 @@ String.class_eval do
   end
 end
 raise "Your first cog fail!" if not ":)".happy?
-raise ":] is happy?" if not ":]".happy?
+raise ":] recognizer fail" if not ":]".happy?
       }
     end
     def code_help 
