@@ -62,12 +62,19 @@ img.assistant {
   width: 100%;
   text-align: center;
 }
-.jonatas, .eliege {
+.jonatasdp, .eliegejachini {
   position: absolute;
+  padding: 10%;
 }
-.jonatas {
-  left: 0;
+.jonatasdp {
+  right: 50%;
 }
-.eliege {
-  right: 0;
+.eliegejachini {
+  left: 50%;
+}
+.rumble {
+  position: absolute;
+  padding-top: 200px;
+  right: 50%;
+  left: 45%;
 }
