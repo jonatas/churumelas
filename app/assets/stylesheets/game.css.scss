@@ -44,7 +44,6 @@ img.assistant {
 
 .box {
   width: $console_width - $title_left;
-  height: 70px;
   margin-left: $title_left;
 }
 .error {
@@ -53,4 +52,7 @@ img.assistant {
 .message {
   background-color: #63BC46;
 }
-
+.center {
+  text-align: center;
+  padding: 15px 15px;
+}

@@ -11,8 +11,10 @@
   <div id="logo">
     <a href="/game/start"><%= image_tag "logo-medium.png" %></a>
   </div>
-  <% flash.each do |key, value| %>
-    <div class="box <%= key %>"><%= value %></div>
+  <% flash.each do |key, value| 
+      next if value.blank? %>
+    <div class="box <%= key %>">
+      <p class="center"><%= value %></p></div>
   <% end %>
 <%= yield %>
 </body>
