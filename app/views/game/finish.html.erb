@@ -1,15 +1,19 @@
 <h1>Game#finish</h1>
-<p>Thanks for play! And don't to forget to connect with our connections :D</p>
+<p class="description">Thanks for play! And don't to forget to connect with our connections :D</p>
 <div class="about-us">
-  <% %w(jonatas eliege).each do |who| %>
-  <div class="<%= who %>">
-    <%= image_tag "about-#{who}.png" %>
-    <div class="connections">
-      <%= %w(google github instagram twitter).collect do |connection| 
-        link_to(image_tag("#{connection}.png"), "http://#{connection}.com/#{who}", :blank => true )
-        end.join image_tag("comma.png") %>
+  <%
+    override_username = {"jonatasdp" => { "github" => "jonatas" } }
+    %w(jonatasdp eliegejachini).each do |who| %>
+    <div class="<%= who %>">
+      <%= image_tag "about-#{who}.png" %>
+      <div class="connections">
+        <% %w(google github instagram twitter).each do |connection|
+          username = override_username[who] && override_username[who][connection] || who
+      %> 
+          <%= link_to image_tag("#{connection}.png"), "http://#{connection}.com/#{username}", :blank => true %>
+        <% end %>
+      </div>
     </div>
-  </div>
   <% end %>
 </div>
 <div>
