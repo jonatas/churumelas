@@ -1,24 +1,4 @@
 <pre class="title big" data-language="ruby">Game#finish</pre>
 <p class="description">Thanks <em><%= h @game.username %></em> for play! And don't to forget to connect with our connections :D</p>
-<div class="about-us">
-  <%= link_to image_tag("rails-rumble.png"), "http://railsrumble.com/entries/370-churumelas-small-challenges", :class => "rumble", :target => "_blank" %>
-  <%
-    %w(jonatasdp eliegejachini).each do |who| %>
-    <div class="<%= who %>">
-      <%= image_tag "about-#{who}.png" %>
-      <div class="connections">
-        <% %w(google github instagram twitter).each do |connection|
-          username = override_username[who] && override_username[who][connection] || who
-         link_url = 
-          if override_url[connection]
-            override_url[connection].call connection, username
-          else
-            "http://#{connection}.com/#{username}"
-          end
-      %> 
-      <%= link_to image_tag("#{connection}.png"),link_url, :target => "_blank" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-</div>
+<p> We really expect you enjoy our weekend project it! Thank you so much for spending your time looking for our idea :)</p>
+<%= render :partial => 'about_us' %>

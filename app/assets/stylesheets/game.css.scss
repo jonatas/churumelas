@@ -73,10 +73,13 @@ img.assistant {
   left: 50%;
 }
 .rumble {
-  position: absolute;
   padding-top: 200px;
+}
+.rumble, .footer {
+  position: absolute;
   right: 50%;
   left: 45%;
+  bottom: 0;
 }
 .compiled {
   background: #0B1022;

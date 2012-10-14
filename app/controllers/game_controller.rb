@@ -11,16 +11,14 @@ class GameController < ApplicationController
     if @game_challenge.pass_with!(params[:console][:code])
       puts "You pass! #{@game_challenge.last_answer}"
       if @game_challenge.level == Challenges.last.level
-        
-        if @game_challenge.level == 6
-          game = @game_challenge.game
-          game.username = @username
-          game.save
-        end
-        flash[:message] = "Congratulations! I really wait you enjoy it! Thank you so much for spending your time looking for our idea :)"
+         @game = @game_challenge.game
+         if @game_challenge.level == 6
+           @game.username = @game_challenge.instance_variable_get "@username"
+           @game.save
+         end
+        flash[:message] = "Congratulations! You finish!"
         render 'finish'
       else
-        @game= @game_challenge.game 
         flash[:message] = "Congratulations! You pass level #{@game.current_level}!"
         @game.next_challenge!
         @game_challenge = @game.current_game_challenge
@@ -33,7 +31,6 @@ class GameController < ApplicationController
     end
   end
   def start_typing
-    puts "start tying at #{Time.now}"
     if not @game_challenge.start_typing_at 
       @game_challenge.start_typing_at = Time.now
       @game_challenge.save
@@ -62,6 +59,7 @@ class GameController < ApplicationController
     end
     if @game_challenge
       @challenge = @game_challenge.challenge
+      @game= @game_challenge.game 
     end
   end
 end
