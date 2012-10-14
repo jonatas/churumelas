@@ -44,7 +44,6 @@ class GameController < ApplicationController
 
   protected
   def load_game_challenge
-    p params
     if params[:game_challenge_id].blank?
       puts "Starting a new game!!!"
       @game = Game.new

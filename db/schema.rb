@@ -13,19 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121014095057) do
 
-  create_table "challenges", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "code_challenge"
-    t.text     "code_help"
-    t.text     "correct_answer"
-    t.string   "tags"
-    t.string   "image_url"
-    t.string   "background_image_url"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
   create_table "game_challenges", :force => true do |t|
     t.integer  "game_id"
     t.integer  "challenge_id"
