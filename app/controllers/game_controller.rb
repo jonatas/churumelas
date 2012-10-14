@@ -15,10 +15,10 @@ class GameController < ApplicationController
         render 'finish'
       else
         @game= @game_challenge.game 
+        flash[:message] = "Congratulations! You pass level #{@game.current_level}!"
         @game.next_challenge!
         @game_challenge = @game.current_game_challenge
         @challenge = @game_challenge.challenge
-        flash[:message] = "Congratulations! You pass!"
         render 'start'
       end
     else
