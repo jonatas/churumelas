@@ -8,6 +8,6 @@ Challenges = [
 ]
 Challenges.class_eval do
   def [] level
-      find {|challenge|challenge.level == level} or raise "Nao encontrou #{current_level} em #{Challenges.collect(&:level).inspect }"
+      find {|challenge|challenge.level == level} or raise "Nao encontrou #{level} em #{Challenges.collect(&:level).inspect }"
   end
 end

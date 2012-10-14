@@ -32,6 +32,5 @@ class Game < ActiveRecord::Base
     self.game_challenges << start_it
     self.save
     @current_game_challenge = start_it
-    start_it
   end
 end
