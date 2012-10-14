@@ -1,3 +1,6 @@
+<% if @game_challenge.game.score > 0 %>
+<div id="score"><%= @game_challenge.game.score %></div>
+<% end %>
 <pre class="title big" data-language="ruby"><%= @challenge.title %></pre>
 <p class="description"><%= h @challenge.description %></p>
 <form action="/game/answer" method="post">

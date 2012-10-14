@@ -19,7 +19,7 @@ class GameChallenge < ActiveRecord::Base
 
   def valid_answer? answer
     self.tries_before_sucess += 1
-    return valuate_code_safe answer 
+    return valuate_code_safe(answer)
   end
   def read_question_time
     start_typing_at - started_at if start_typing_at
@@ -49,19 +49,16 @@ class GameChallenge < ActiveRecord::Base
     # your code here
     logger.info "Evaluating... with #{answer}"
     logger.info self.compiled_challenge
-    self.thread_return = nil
-    Thread.start { 
-      begin
-        $SAFE = 4 # PARANOIC
-        eval self.compiled_challenge 
-        self.thread_return = true
-      rescue  Exception => e
-        self.register_error e
-        self..thread_return = true
-      end
-    }
+    begin
+      eval self.compiled_challenge
+      self.thread_return = true
+      return true
+    rescue  Exception => e
+      self.register_error e
+      self.thread_return = true
+    end
+    return false
   end
-  private
   def register_error e
     self.last_compiling_error, 
       self.last_compiling_error_trace = e.message, e.backtrace.inspect 

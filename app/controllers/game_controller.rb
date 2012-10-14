@@ -28,9 +28,11 @@ class GameController < ApplicationController
   end
   def start_typing
     puts "start tying at #{Time.now}"
-    @game_challenge.start_typing = Time.now
-    @game_challenge.save
-    render :json => {:sucess => @game_challenge.save }.to_json
+    if not @game_challenge.start_typing_at 
+      @game_challenge.start_typing_at = Time.now
+      @game_challenge.save
+    end
+    render :json => {:sucess => true}.to_json
   end
 
   def finish
