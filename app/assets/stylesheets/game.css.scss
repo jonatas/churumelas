@@ -62,6 +62,12 @@ img.assistant {
   width: 100%;
   text-align: center;
 }
-.creator {
-  width: 50%;
+.jonatas, .eliege {
+  position: absolute;
+}
+.jonatas {
+  left: 0;
+}
+.eliege {
+  right: 0;
 }
