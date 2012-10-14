@@ -28,7 +28,7 @@ input#console {
   height: $console_height;
   background-color: black;
   color: white;
-  font-size: $console_height; 
+  font-size: $console_height - 10px; 
   cursor-color: green;
   display: inline-block;
   text-align: -webkit-auto;
