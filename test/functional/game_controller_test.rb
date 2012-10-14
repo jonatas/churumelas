@@ -6,10 +6,10 @@ class GameControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:game_challenge)
     assert assigns(:game)
-    assert assigns(:challenge) == Challenge.first
+    assert assigns(:challenge) == First
     post(:answer, :console => { :code => "start" }, 
          :game_challenge_id => assigns(:game_challenge).id)
-    assert assigns(:challenge) == Challenge.all.second
+    assert assigns(:challenge) == Second
   end
   
   test "should start by typing start" do

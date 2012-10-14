@@ -1,7 +1,6 @@
-
-require "app/challenges/first"
-require "app/challenges/second"
-require "app/challenges/third"
+%w(first second third).each do |challenge|
+  require File.join(Rails.root,"app","challenges",challenge)
+end
 Challenges = [
   First,
   Second,
