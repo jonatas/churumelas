@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014111809) do
+ActiveRecord::Schema.define(:version => 20121014175025) do
 
   create_table "game_challenges", :force => true do |t|
     t.integer  "game_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20121014111809) do
     t.integer  "tries_before_sucess",        :default => 0
     t.text     "last_answer"
     t.integer  "level"
+    t.integer  "score",                      :default => 0
   end
 
   add_index "game_challenges", ["game_id"], :name => "index_game_challenges_on_game_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20121014111809) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.integer  "current_level", :default => 1
+    t.integer  "score",         :default => 0
   end
 
 end

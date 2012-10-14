@@ -22,6 +22,9 @@ class Game < ActiveRecord::Base
       puts "You finish!"
     end
   end
+  def score
+    game_challenges.sum &:score
+  end
   private
   def start_this! challenge
     return if not challenge
