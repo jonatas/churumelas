@@ -4,6 +4,8 @@
 $white: #fff;
 $black: #000;
 $console_height: 30px;
+$title_left: 80px;
+$console_width: 50%;
 
 body {
     background-color: $black;
@@ -11,17 +13,18 @@ body {
     font-family: monospace;
 }
 .title {
-  margin-left: 80px;
+  margin-left: $title_left;
 }
 .big {
+  margin-left: $title_left;
   font-size: 170%;
 }
 #logo {
   float: left;
-  width: 10%; 
+  width: 10%;
 }
 input#console {
-  width: 50%; 
+  width: $console_width; 
   height: $console_height;
   background-color: black;
   color: white;
@@ -46,6 +49,7 @@ img.assistant {
 .error {
   background-color: red;
   color: white;
+  background: url(/assets/error-icon.png);
 }
 .notice {
 }
