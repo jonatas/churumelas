@@ -7,7 +7,9 @@
 <pre data-language='ruby'><%= @game_challenge.code_challenge %></pre>
 <% if flash[:error] and @game_challenge and @game_challenge.last_compiling_error %>
  <div id="compiled-challenge">
- <em>Your compiled code</em>
+<big>
+ <em>Your compiled code with errors...</em>
+</big>
 <pre class="compiled" data-language='ruby'>
 <%= @game_challenge.compiled_challenge %>
 </pre>
