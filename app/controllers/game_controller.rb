@@ -22,9 +22,7 @@ class GameController < ApplicationController
         render 'start'
       end
     else
-      if not flash[:error] = @game_challenge.last_compiling_error
-        flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
-      end
+      flash[:error] = @game_challenge.last_compiling_error
       render 'start'
     end
   end

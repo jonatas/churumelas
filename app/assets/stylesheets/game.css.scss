@@ -36,11 +36,6 @@ input#console {
   display: inline-block;
   text-align: -webkit-auto;
 }
-img.assistant {
-  position: absolute;
-  top: 20px;
-  right: 0px;
-}
 
 .box {
   width: $console_width - $title_left;
@@ -55,4 +50,11 @@ img.assistant {
 .center {
   text-align: center;
   padding: 15px 15px;
+}
+img.assistant, #compiled-challenge {
+  position: absolute;
+  right: 0px;
+}
+img.assistant {
+  top: 20px;
 }

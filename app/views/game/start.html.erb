@@ -4,9 +4,15 @@
   <%= hidden_field_tag :game_challenge_id, @game_challenge.id %>
   <input type="text" name="console[code]" id="console" value="<%= @game_challenge.last_answer %>" />
 </form>
-<pre data-language="ruby">
-<%= h @challenge.code_challenge %>
+<pre data-language='ruby'><%= @game_challenge.code_challenge %></pre>
+<% if flash[:error] and @game_challenge and @game_challenge.last_compiling_error %>
+ <div id="compiled-challenge">
+ <em>Your compiled code</em>
+<pre class="compiled" data-language='ruby'>
+<%= @game_challenge.compiled_challenge %>
 </pre>
+</div>
+<% end %>
 <small>
   <p class="help description">
     <%= @challenge.code_help %>

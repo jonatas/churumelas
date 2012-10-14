@@ -8,20 +8,16 @@ class First
       %q{Show me the world! Type "start" to face your first challenge!}
     end
     def code_challenge
-      %q{if @challenge.valid_answer? params[:console][:code]
-  redirect_to :action =>:next_level
-else
-  flash[:message] = "Come on! Type 'start' and I'll give you some challenges!"
-  redirect_to :action => :start
-end}
+      %q{
+console_input = "# your code here"
+if console_input !~ /start/i
+  raise "Come on! Type 'start'!"
+end
+      }
     end
     def code_help 
-      %q{Imagine you are coding a system like me and want to be redirected to the first level you will need to pass the correct word.}
+      %q{Your code will be replaced on "# your code here" tag. Now proceed typing start}
     end
-    def correct_answer 
-      "start"
-    end
-
     def tags ; "ruby beginner" end
     def image_url ; "feliz.png" end
     def background_image_url ; "start-background.png" end
