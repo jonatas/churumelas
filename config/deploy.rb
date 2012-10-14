@@ -76,6 +76,7 @@ after 'deploy:update_code' do
   sudo "chown www-data:www-data #{release_path}/config/database.yml"
   # Compile Assets
   run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
+  run "cd #{release_path}; RAILS_ENV=production bundle exec rake db:seed"
 end
 
 # Restart Passenger
