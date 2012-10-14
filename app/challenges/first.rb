@@ -1,5 +1,6 @@
-class StartFirst
+class First
   class << self
+    def level; 1; end
     def title 
       "@you.can_start? # => return true"
     end

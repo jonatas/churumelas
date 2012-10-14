@@ -11,11 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014095057) do
+ActiveRecord::Schema.define(:version => 20121014111809) do
 
   create_table "game_challenges", :force => true do |t|
     t.integer  "game_id"
-    t.integer  "challenge_id"
     t.datetime "started_at"
     t.datetime "start_typing_at"
     t.datetime "submit_first_time_at"
@@ -27,15 +26,16 @@ ActiveRecord::Schema.define(:version => 20121014095057) do
     t.text     "last_compiling_error_trace"
     t.integer  "tries_before_sucess",        :default => 0
     t.text     "last_answer"
+    t.integer  "level"
   end
 
-  add_index "game_challenges", ["challenge_id"], :name => "index_game_challenges_on_challenge_id"
   add_index "game_challenges", ["game_id"], :name => "index_game_challenges_on_game_id"
 
   create_table "games", :force => true do |t|
     t.string   "username"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.integer  "current_level", :default => 1
   end
 
 end

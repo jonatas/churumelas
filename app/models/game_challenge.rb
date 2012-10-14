@@ -1,10 +1,11 @@
 class GameChallenge < ActiveRecord::Base
   belongs_to :game
-  belongs_to :challenge
   delegate :correct_answer, :code_challenge, :to => :challenge
   attr_accessible :pass_level_at, :start_typing_at, :started_at, :submit_first_time_at
-  attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace, :last_answer
-
+  attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace, :last_answer, :level
+  def challenge
+    Challenges[self.level]
+  end
   def pass_with! answer 
     self.submit_first_time_at ||= Time.now
     if (can_pass = self.valid_answer?(answer))

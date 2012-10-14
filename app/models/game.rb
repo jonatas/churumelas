@@ -1,14 +1,23 @@
 class Game < ActiveRecord::Base
-  attr_accessible :username
+  attr_accessible :username, :current_level
   has_many :game_challenges 
   def start!
-    start_this! Challenge.first
+    self.current_level = 1
+    puts "current_challenge"
+    start_this! current_challenge
+  end
+  def next_challenge
+    Challenges[current_level + 1]
+  end
+  def current_challenge
+    if not Challenges[current_level] 
+    else
+      Challenges[current_level] 
+    end
   end
   def next_challenge!
-    start! and return if not (last_challenge = current_challenge)
-    if (next_challenge = last_challenge.next_challenge)
-      start_this! next_challenge
-    else
+    start! and return if game_challenges.empty?
+    if not start_this! next_challenge
       puts "You finish!"
     end
   end
@@ -17,8 +26,11 @@ class Game < ActiveRecord::Base
   end
   private
   def start_this! challenge
+    return if not challenge
     start_it = GameChallenge.new
-    start_it.challenge = challenge
+    start_it.level = challenge.level
+    start_it.started_at = Time.now
+    self.current_level = start_it.level
     self.game_challenges << start_it
     start_it
   end
