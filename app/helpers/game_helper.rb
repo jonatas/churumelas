@@ -13,7 +13,7 @@ module GameHelper
   end
   def override_url
     {
-      "instagram" => lambda {|c,u| "http://web.#{c}.com/p/#{u}"},
+      "instagram" => lambda {|c,u| "http://web.stagram.com/n/#{u}"},
       "google" => lambda {|c,u| "http://plus.#{c}.com/#{u}"}
     }
   end
