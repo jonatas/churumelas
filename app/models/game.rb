@@ -11,6 +11,7 @@ class Game < ActiveRecord::Base
     start_this! current_challenge
   end
   def next_challenge
+    return if Challenges.last == current_challenge
     Challenges[current_level + 1]
   end
   def current_challenge

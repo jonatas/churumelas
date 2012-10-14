@@ -1,5 +1,8 @@
-%w(first second third fourth).each do |challenge|
-  require File.join(Rails.root,"app","challenges",challenge)
+Dir[File.join(Rails.root,"app","challenges", "*.rb")].each do |challenge|
+  challenge.gsub! '.rb',''
+  next if challenge =~ /all/
+    puts "Carregando #{challenge}"
+  require challenge
 end
 Challenges = [ First, Second, Third, Fourth, Fifth ]
 Challenges.class_eval do

@@ -4,7 +4,7 @@ class GameChallenge < ActiveRecord::Base
   attr_accessible :pass_level_at, :start_typing_at, :started_at, :submit_first_time_at
   attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace, :last_answer, :level, :score
   before_save :compute_score
-  attr_accessor :compiled_challenge
+  attr_accessor :compiled_challenge, :thread_return
   def challenge
     Challenges[self.level]
   end
@@ -50,17 +50,16 @@ class GameChallenge < ActiveRecord::Base
     logger.info "Evaluating... with #{answer}"
     logger.info self.compiled_challenge
     self.thread_return = nil
-    Thread.new(self) { |these_challenge|
+    Thread.start { 
       begin
         $SAFE = 4 # PARANOIC
         eval self.compiled_challenge 
-        these_challenge.thread_return = true
+        self.thread_return = true
       rescue  Exception => e
-        these_challenge.register_error e
-        these_challenge.thread_return = true
+        self.register_error e
+        self..thread_return = true
       end
     }
-    sleep 0.01 while not self.thread_return
   end
   private
   def register_error e
