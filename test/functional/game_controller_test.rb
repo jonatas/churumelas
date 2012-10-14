@@ -23,7 +23,6 @@ class GameControllerTest < ActionController::TestCase
     bad_words = %w(nil start! \ start `` eval system)
     bad_words.each do |try|
       post(:answer, :console => { :code => try}, :game_challenge_id => challenge_id)
-      assert_not_nil  flash[:message]
       assert_template "start"
     end
   end
