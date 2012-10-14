@@ -10,8 +10,11 @@ class Game < ActiveRecord::Base
     self.current_level = 1
     start_this! current_challenge
   end
+  def ends?
+    Challenges.last == current_challenge
+  end
   def next_challenge
-    return if Challenges.last == current_challenge
+    return nil if ends?
     Challenges[current_level + 1]
   end
   def current_challenge
