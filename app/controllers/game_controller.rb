@@ -11,6 +11,12 @@ class GameController < ApplicationController
     if @game_challenge.pass_with!(params[:console][:code])
       puts "You pass! #{@game_challenge.last_answer}"
       if @game_challenge.level == Challenges.last.level
+        
+        if @game_challenge.level == 6
+          game = @game_challenge.game
+          game.username = @username
+          game.save
+        end
         flash[:message] = "Congratulations! I really wait you enjoy it! Thank you so much for spending your time looking for our idea :)"
         render 'finish'
       else
