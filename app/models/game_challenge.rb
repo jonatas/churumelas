@@ -3,24 +3,20 @@ class GameChallenge < ActiveRecord::Base
   belongs_to :challenge
   delegate :correct_answer, :code_challenge, :to => :challenge
   attr_accessible :pass_level_at, :start_typing_at, :started_at, :submit_first_time_at
-  attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace 
+  attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace, :last_answer
 
   def pass_with! answer 
-    if not self.submit_first_time_at 
-      self.submit_first_time_at = Time.now
-    end
-    can_pass = self.valid_answer? answer
-    if can_pass
+    self.submit_first_time_at ||= Time.now
+    if (can_pass = self.valid_answer?(answer))
       self.pass_level_at = Time.now
     end
     self.save if changed?
-    return false if not can_pass
-    return true
+    return can_pass
   end
 
   def valid_answer? answer
     self.tries_before_sucess += 1
-    @user_answer = answer
+    self.last_answer = answer
     if correct_answer.is_a? String 
       logger.info "valid_answer? #{correct_answer.inspect} == #{answer.inspect}"
       return correct_answer == answer
@@ -44,10 +40,10 @@ class GameChallenge < ActiveRecord::Base
    pass_level_at - started_at  if pass_level_at
   end
   def score
-    #puts "return 0 if not #{@user_answer.nil?} or not #{pass_level_at.nil?} or not #{start_typing_at.nil?}"
-    return 0 if not @user_answer or not pass_level_at or not start_typing_at
+    #puts "return 0 if not #{last_answer.nil?} or not #{pass_level_at.nil?} or not #{start_typing_at.nil?}"
+    return 0 if not self.last_answer or not pass_level_at or not start_typing_at
     ( 
-     (challenge.description.to_s.size + correct_answer.to_s.size + @user_answer.to_s.size) /
+     (challenge.description.to_s.size + correct_answer.to_s.size + last_answer.to_s.size) /
          (read_question_time * write_answer_time)  /
              tries_before_sucess
     ).to_i.abs

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013185457) do
+ActiveRecord::Schema.define(:version => 20121014095057) do
 
   create_table "challenges", :force => true do |t|
     t.string   "title"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20121013185457) do
     t.text     "last_compiling_error"
     t.text     "last_compiling_error_trace"
     t.integer  "tries_before_sucess",        :default => 0
+    t.text     "last_answer"
   end
 
   add_index "game_challenges", ["challenge_id"], :name => "index_game_challenges_on_challenge_id"
