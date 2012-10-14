@@ -11,4 +11,4 @@ $ ->
          ->
            window.console.started_typing = true
          , 'json'
-
+  $('#console').focus()
