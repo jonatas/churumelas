@@ -15,6 +15,12 @@ if console_input !~ /start/i
 end
       }
     end
+    def valid_answers
+      %w(start Start START)
+    end
+    def invalid_answers
+      %w(staort STRAT estart)
+    end
     def code_help 
       %q{Your code will be replaced on "# your code here" tag. Now proceed typing start}
     end
