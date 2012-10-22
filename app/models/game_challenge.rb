@@ -50,7 +50,7 @@ class GameChallenge < ActiveRecord::Base
     logger.info "Evaluating... with #{answer}"
     logger.info self.compiled_challenge
     begin
-      eval self.compiled_challenge
+      Sandbox.new.eval self.compiled_challenge
       self.thread_return = true
       return true
     rescue  Exception => e
