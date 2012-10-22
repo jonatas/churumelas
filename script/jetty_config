@@ -1,0 +1,12 @@
+#!/bin/bash
+# --- START SETTINGS TO EDIT ---
+#add the JRE bin directory to path
+PATH=$PATH:/usr/local/jre/bin/
+#Base directory for deployment
+BASE_DIR=/usr/local/jrailsapps/uploadforme
+#Jruby executable to use
+JRUBY=/usr/local/jruby/bin/jruby 
+# --- END SETTINGS TO EDIT ---
+
+PID_FILE=$BASE_DIR/shared/tmp/pids/jetty_rails.pid
+

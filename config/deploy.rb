@@ -68,25 +68,20 @@ set :branch,     "master"
 role :app, LINODE_SERVER_HOSTNAME
 role :db,  LINODE_SERVER_HOSTNAME, :primary => true
 
-# Add Configuration Files & Compile Assets
-after 'deploy:update_code' do
-  # Setup Configuration
-  run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-
-  sudo "chown www-data:www-data #{release_path}/config/database.yml"
-  # Compile Assets
-  run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
-  run "cd #{release_path}; RAILS_ENV=production bundle exec rake db:seed"
+namespace :deploy do
+  desc "Restarting jetty_rails"
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    stop 
+    start
+  end
+  desc "Stopping jetty_rails"
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && script/stop_jetty", :pty => true
+  end
+  desc "Starting rails app with jetty_rails"
+  task :start, :roles => :app do
+    run "cd #{current_path} && #{try_runner} nohup script/spin", :pty => true
+  end
 end
 
-# Restart Passenger
-deploy.task :restart, :roles => :app do
-  # Fix Permissions
-  sudo "chown -R www-data:www-data #{current_path}"
-  sudo "chown -R www-data:www-data #{latest_release}"
-  sudo "chown -R www-data:www-data #{shared_path}/bundle"
-  sudo "chown -R www-data:www-data #{shared_path}/log"
 
-  # Restart Application
-  run "touch #{current_path}/tmp/restart.txt"
-end
