@@ -22,6 +22,10 @@ GEM
       activesupport (= 3.2.8)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-jdbc-adapter (1.2.2.1)
+    activerecord-jdbcmysql-adapter (1.2.2.1)
+      activerecord-jdbc-adapter (~> 1.2.2.1)
+      jdbc-mysql (~> 5.1.0)
     activeresource (3.2.8)
       activemodel (= 3.2.8)
       activesupport (= 3.2.8)
@@ -76,7 +80,6 @@ GEM
     jruby_sandbox (0.1.3-java)
       fakefs
     json (1.7.5-java)
-    libv8 (3.11.8.3)
     listen (0.5.3)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -154,17 +157,16 @@ PLATFORMS
   java
 
 DEPENDENCIES
+  activerecord-jdbcmysql-adapter
   autotest-fsevent
   autotest-growl
   autotest-standalone
   capistrano
   coffee-rails (~> 3.2.1)
   guard-jruby-rspec
-  jdbc-mysql
   jquery-rails
   jruby-openssl
   jruby_sandbox
-  libv8
   rails (= 3.2.8)
   rb-fsevent (~> 0.9.1)
   sass-rails (~> 3.2.3)
