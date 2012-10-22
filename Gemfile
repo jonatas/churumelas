@@ -41,6 +41,7 @@ gem 'jquery-rails'
 gem 'capistrano'
 group :production do
   gem 'therubyrhino'
+  gem 'rvm-capistrano'
 end
 group :test do
   gem "guard-jruby-rspec"
