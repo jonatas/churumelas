@@ -5,7 +5,10 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'jdbc-mysql'
+gem 'libv8'
+gem 'jruby_sandbox'
+gem 'jruby-openssl'
 
 
 # Gems used only for assets and not required
@@ -38,12 +41,9 @@ gem 'jquery-rails'
 # gem 'debugger'
 gem 'capistrano'
 group :production do
-  gem 'therubyracer'
+  gem 'therubyrhino'
 end
 group :test do
-  gem "spork"
-  gem "ZenTest"
-  gem "autotest-rails"
   gem "guard-jruby-rspec"
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'autotest-standalone'

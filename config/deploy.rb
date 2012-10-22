@@ -28,8 +28,8 @@ require 'bundler/capistrano'
 ##                                         ##
 #############################################
 
-GITHUB_REPOSITORY_NAME = 'r12-team-370'
-LINODE_SERVER_HOSTNAME = '72.14.184.184'
+GITHUB_REPOSITORY_NAME = 'churumelas'
+LINODE_SERVER_HOSTNAME = '66.228.54.36'
 
 #############################################
 #############################################
@@ -39,12 +39,12 @@ LINODE_SERVER_HOSTNAME = '72.14.184.184'
 set :bundle_flags,               "--deployment"
 
 set :application,                "churumelas"
-set :hostname,                   "churumelas.r12.railsrumble.com"
-set :deploy_to,                  "/var/www/apps/railsrumble"
+set :hostname,                   "churumelas.ideia.me"
+set :deploy_to,                  "/var/www/apps/churumelas"
 set :normalize_asset_timestamps, false
 set :rails_env,                  "production"
 
-set :user,                       "root"
+set :user,                       "deploy"
 set :runner,                     "www-data"
 set :admin_runner,               "www-data"
 
@@ -57,11 +57,11 @@ set :admin_runner,               "www-data"
 #
 # 3. Uncomment the below ssh_options[:keys] line in this file.
 #
-# ssh_options[:keys] = ["~/.ssh/id_rsa"]
+ ssh_options[:keys] = ["~/.ssh/id_rsa"]
 
 # SCM Options
 set :scm,        :git
-set :repository, "git@github.com:railsrumble/#{GITHUB_REPOSITORY_NAME}.git"
+set :repository, "git@github.com:jonatas/#{GITHUB_REPOSITORY_NAME}.git"
 set :branch,     "master"
 
 # Roles

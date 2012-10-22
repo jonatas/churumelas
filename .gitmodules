@@ -1,0 +1,3 @@
+[submodule "lib/sandbox"]
+	path = lib/sandbox
+	url = https://github.com/omghax/jruby-sandbox.git
