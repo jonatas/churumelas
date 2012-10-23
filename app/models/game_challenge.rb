@@ -1,3 +1,4 @@
+require "sandbox"
 class GameChallenge < ActiveRecord::Base
   belongs_to :game
   delegate :correct_answer, :code_challenge, :to => :challenge

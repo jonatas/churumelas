@@ -14,6 +14,7 @@ String.class_eval do
 end
 raise "Your first cog fail!" if not ":)".happy?
 raise ":] recognizer fail" if not ":]".happy?
+raise ":~( recognizer got sad faces incorrectl" if ":~(".happy?
       }
     end
     def code_help 
