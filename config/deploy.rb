@@ -1,8 +1,5 @@
 require 'bundler/capistrano'
 
-set :rvm_ruby_string, 'jruby-1.7.0-preview2@rails3'                     # Or:
-#set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"") # Read from local system
-#
 require "rvm/capistrano"
 # This capistrano deployment recipe is made to work with the optional
 # StackScript provided to all Rails Rumble teams in their Linode dashboard.
