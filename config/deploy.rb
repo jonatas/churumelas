@@ -1,34 +1,23 @@
-require 'bundler/capistrano'
-
 require "rvm/capistrano"
-set :rvm_ruby_string, "/usr/local/rvm/rubies/jruby-1.7.0.preview2"
-# This capistrano deployment recipe is made to work with the optional
-# StackScript provided to all Rails Rumble teams in their Linode dashboard.
-#
-# After setting up your Linode with the provided StackScript, configuring
-# your Rails app to use your GitHub repository, and copying your deploy
-# key from your server's ~/.ssh/github-deploy-key.pub to your GitHub
-# repository's Admin / Deploy Keys section, you can configure your Rails
-# app to use this deployment recipe by doing the following:
-#
-# 1. Add `gem 'capistrano'` to your Gemfile.
-# 2. Run `bundle install --binstubs --path=vendor/bundles`.
-# 3. Run `bin/capify .` in your app's root directory.
-# 4. Replace your new config/deploy.rb with this file's contents.
-# 5. Configure the two parameters in the Configuration section below.
-# 6. Run `git commit -a -m "Configured capistrano deployments."`.
-# 7. Run `git push origin master`.
-# 8. Run `bin/cap deploy:setup`.
-# 9. Run `bin/cap deploy:migrations` or `bin/cap deploy`.
-#
-# Note: When deploying, you'll be asked to enter your server's root
-# password. To configure password-less deployments, see below.
+require 'bundler/capistrano'
+set :rails_env,             'production'
+set :rvm_type,              :system
+set :rvm_ruby_string, "jruby-1.7.0.preview2"
+set :rvm_path,          "/usr/local/rvm"
+set :rvm_bin_path,      "#{rvm_path}/bin"
+set :rvm_lib_path,      "#{rvm_path}/lib"
 
-#############################################
-##                                         ##
-##              Configuration              ##
-##                                         ##
-#############################################
+set :default_environment: {
+        PATH:         "/usr/local/rvm/gems/jruby-1.7.0.preview2/bin:/usr/local/rvm/gems/jruby-1.7.0.preview2@global/bin:/usr/local/rvm/rubies/jruby-1.7.0.preview2/bin:/home/deploy/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+      GEM_HOME:     "/usr/local/rvm/gems/jruby-1.7.0.preview2"
+          GEM_PATH:     "/usr/local/rvm/gems/jruby-1.7.0.preview2:/usr/local/rvm/gems/jruby-1.7.0.preview2@global"
+              MY_RUBY_HOME: "/usr/local/rvm/rubies/jruby-1.7.0.preview2"
+                  IRBRC:        "/usr/local/rvm/rubies/jruby-1.7.0.preview2/.irbrc"
+                      RUBYOPT:      ""
+                          gemset:       ""
+}
+set :bundle_dir,            "#{rvm_path}/gems/#{rvm_ruby_string}"
+set :bundle_flags,      "--deployment --verbose"
 
 GITHUB_REPOSITORY_NAME = 'churumelas'
 LINODE_SERVER_HOSTNAME = '66.228.54.36'
