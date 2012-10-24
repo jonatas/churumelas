@@ -1,6 +1,7 @@
 require 'bundler/capistrano'
 
 require "rvm/capistrano"
+set :rvm_ruby_string, "/usr/local/rvm/rubies/jruby-1.7.0.preview2"
 # This capistrano deployment recipe is made to work with the optional
 # StackScript provided to all Rails Rumble teams in their Linode dashboard.
 #
