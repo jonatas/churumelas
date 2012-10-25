@@ -1,11 +1,11 @@
 #!/bin/bash
 # --- START SETTINGS TO EDIT ---
 #add the JRE bin directory to path
-PATH=$PATH:/usr/local/jre/bin/
+PATH=$PATH:/usr/local/rvm/gems/jruby-1.7.0.preview2/bin:/usr/local/rvm/gems/jruby-1.7.0.preview2@global/bin:/usr/local/rvm/rubies/jruby-1.7.0.preview2/bin:/home/deploy/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #Base directory for deployment
-BASE_DIR=/usr/local/jrailsapps/uploadforme
+BASE_DIR=/var/www/apps/churumelas
 #Jruby executable to use
-JRUBY=/usr/local/jruby/bin/jruby 
+JRUBY=/usr/local/rvm/rubies/jruby-1.7.0.preview2/bin/ruby
 # --- END SETTINGS TO EDIT ---
 
 PID_FILE=$BASE_DIR/shared/tmp/pids/jetty_rails.pid
