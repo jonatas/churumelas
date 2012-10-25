@@ -7,6 +7,7 @@ set :rvm_path,          "/usr/local/rvm"
 set :rvm_bin_path,      "#{rvm_path}/bin"
 set :rvm_lib_path,      "#{rvm_path}/lib"
 set :admin_runner, "my_apps_username"
+set :use_sudo, false
 
 
 set :default_environment, {
