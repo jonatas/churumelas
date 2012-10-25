@@ -8,6 +8,7 @@ gem 'rails', '3.2.8'
 gem 'activerecord-jdbcmysql-adapter'
 gem 'jruby_sandbox'
 gem 'jruby-openssl'
+gem 'jetty-rails'
 
 
 # Gems used only for assets and not required
