@@ -6,6 +6,8 @@ set :rvm_ruby_string, "jruby-1.7.0.preview2"
 set :rvm_path,          "/usr/local/rvm"
 set :rvm_bin_path,      "#{rvm_path}/bin"
 set :rvm_lib_path,      "#{rvm_path}/lib"
+set :admin_runner, "my_apps_username"
+
 
 set :default_environment, {
        :PATH => "/usr/local/rvm/gems/jruby-1.7.0.preview2/bin:/usr/local/rvm/gems/jruby-1.7.0.preview2@global/bin:/usr/local/rvm/rubies/jruby-1.7.0.preview2/bin:/home/deploy/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",
@@ -34,8 +36,8 @@ set :normalize_asset_timestamps, false
 set :rails_env,                  "production"
 
 set :user,                       "deploy"
-set :runner,                     "www-data"
-set :admin_runner,               "www-data"
+set :runner,                     "deploy"
+set :admin_runner,               "deploy"
 
 # Password-less Deploys (Optional)
 #
