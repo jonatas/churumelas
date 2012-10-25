@@ -8,13 +8,11 @@ set :rvm_bin_path,      "#{rvm_path}/bin"
 set :rvm_lib_path,      "#{rvm_path}/lib"
 
 set :default_environment, {
-        PATH:         "/usr/local/rvm/gems/jruby-1.7.0.preview2/bin:/usr/local/rvm/gems/jruby-1.7.0.preview2@global/bin:/usr/local/rvm/rubies/jruby-1.7.0.preview2/bin:/home/deploy/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
-      GEM_HOME:     "/usr/local/rvm/gems/jruby-1.7.0.preview2"
-          GEM_PATH:     "/usr/local/rvm/gems/jruby-1.7.0.preview2:/usr/local/rvm/gems/jruby-1.7.0.preview2@global"
-              MY_RUBY_HOME: "/usr/local/rvm/rubies/jruby-1.7.0.preview2"
-                  IRBRC:        "/usr/local/rvm/rubies/jruby-1.7.0.preview2/.irbrc"
-                      RUBYOPT:      ""
-                          gemset:       ""
+       :PATH => "/usr/local/rvm/gems/jruby-1.7.0.preview2/bin:/usr/local/rvm/gems/jruby-1.7.0.preview2@global/bin:/usr/local/rvm/rubies/jruby-1.7.0.preview2/bin:/home/deploy/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games",
+      :GEM_HOME => "/usr/local/rvm/gems/jruby-1.7.0.preview2",
+      :GEM_PATH => "/usr/local/rvm/gems/jruby-1.7.0.preview2:/usr/local/rvm/gems/jruby-1.7.0.preview2@global",
+      :MY_RUBY_HOME => "/usr/local/rvm/rubies/jruby-1.7.0.preview2",
+      :IRBRC =>        "/usr/local/rvm/rubies/jruby-1.7.0.preview2/.irbrc"
 }
 set :bundle_dir,            "#{rvm_path}/gems/#{rvm_ruby_string}"
 set :bundle_flags,      "--deployment --verbose"
