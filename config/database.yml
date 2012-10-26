@@ -19,5 +19,5 @@ production:
   adapter: mysql
   database: xurumelas_production
   username: root
-  password: xurumelas
+  password: 1qazxsw2#$
   socket: /var/run/mysqld/mysqld.sock
