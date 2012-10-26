@@ -28,7 +28,7 @@ namespace :deploy do
   end
   desc "Starting rails app with jetty_rails"
   task :start  do
-    run "cd #{current_path} && script/rails server -p 80 -d -e production ", :pty => true
+    run "cd #{current_path} && bundle exec mizuno"
   end
 end
 
