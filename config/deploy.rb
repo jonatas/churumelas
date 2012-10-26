@@ -30,15 +30,15 @@ role :db,  LINODE_SERVER_HOSTNAME, :primary => true
 
 namespace :deploy do
   desc "Restarting jetty_rails"
-  task :restart, :roles => :app, :except => { :no_release => true } do
+  task :restart, :except => { :no_release => true } do
     stop 
     start
   end
   desc "Stopping jetty_rails"
-  task :stop, :roles => :app, :except => { :no_release => true } do
+  task :stop, :except => { :no_release => true } do
   end
   desc "Starting rails app with jetty_rails"
-  task :start, :roles => :app do
+  task :start  do
     run "cd #{current_path} && #{try_runner} script/rails server -p 80 -d -e production ", :pty => true
   end
 end
