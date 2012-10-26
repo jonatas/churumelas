@@ -31,9 +31,9 @@ namespace :deploy do
   task :start  do
     run "cd #{current_path} && bundle exec mizuno --port 80 -E production -D --start"
   end
-  after 'deploy:update_code' do
-      run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
-  end
+  #after 'deploy:update_code' do
+      #run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+  #end
 end
 
 
