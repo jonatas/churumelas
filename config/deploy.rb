@@ -10,6 +10,7 @@ LINODE_SERVER_HOSTNAME = '66.228.54.36'
 
 # General Options
 
+set :rvm_bin_path,               "/root/.rvm/bin"
 set :bundle_flags,               "--deployment"
 set :application,                "churumelas"
 set :hostname,                   "churumelas.ideia.me"
