@@ -11,19 +11,19 @@ class Game < ActiveRecord::Base
     start_this! current_challenge
   end
   def ends?
-    Challenges.last == current_challenge
+    Challenges.last.level == current_level
   end
   def next_challenge
     return nil if ends?
-    Challenges[current_level + 1]
+    Challenges.get_level current_level + 1
   end
   def current_challenge
-    Challenges[current_level] 
+    Challenges.get_level current_level
   end
   def next_challenge!
     start! and return if game_challenges.empty?
     if not start_this! next_challenge
-      puts "You finish!"
+      raise "You finish!"
     end
   end
   def score
@@ -32,6 +32,7 @@ class Game < ActiveRecord::Base
   private
   def start_this! challenge
     return if not challenge
+    puts "Starting #{challenge.level} - #{challenge.title}"
     start_it = GameChallenge.new
     start_it.level = challenge.level
     start_it.started_at = Time.now
