@@ -13,7 +13,10 @@ Challenges.class_eval do
       raise "Nao encontrou #{level} em #{Challenges.collect(&:level).inspect }"
   end
 end
-%w(start
+%w(
+  cog_job_face_builder_with_noose
+  cog_job_face_builder_starting_for_fun
+  start
   set_your_username
   cog_job_is_for_you
   cog_job_recognize_different_smiles

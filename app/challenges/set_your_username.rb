@@ -1,4 +1,4 @@
-challenge :title  =>  %q{"@game.username != "anonymous"},
+challenge :title  =>  %q{@game.username != "anonymous"},
   :description  =>  %q{Try to put your name in your @game!},
   :code_challenge => %q{
 # your code here
