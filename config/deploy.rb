@@ -23,7 +23,7 @@ namespace :deploy do
     stop
     start
   end
-  desc "Stopping mizuno"
+  desc "Stopping mizuno" do
     run "cd #{current_path} && bundle exec mizuno --port 80 -E development -D --stop"
   end
   desc "Starting mizuno"
