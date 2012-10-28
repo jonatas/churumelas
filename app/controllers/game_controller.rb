@@ -48,7 +48,7 @@ class GameController < ApplicationController
   end
   protected
   def load_game_challenge
-    p params
+    #p params
     if params[:game_challenge_id].blank?
       puts "Starting a new game!!!"
       @game = Game.new
@@ -61,7 +61,8 @@ class GameController < ApplicationController
     end
     if @game_challenge
       @challenge = @game_challenge.challenge
-      @game= @game_challenge.game 
+      @game= @game_challenge.game
     end
+    puts "Challenge : #{@challenge}"
   end
 end
