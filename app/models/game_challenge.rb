@@ -7,7 +7,7 @@ class GameChallenge < ActiveRecord::Base
   before_save :compute_score
   attr_accessor :compiled_challenge, :thread_return
   def challenge
-    Challenges[self.level]
+    Challenges.get_level self.level
   end
   def pass_with! answer 
     self.submit_first_time_at ||= Time.now
