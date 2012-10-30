@@ -14,4 +14,4 @@ end},
   :code_help =>  %q{Imagine the ASCOG Inc. is loving your work! Now, it can support inversed faces and you can compose groups to reuse them while trying to find noose and eyes. Remember the mouth happy combines the side of eyes...},
   :tags =>  "ruby regexp ascog",
   :image_url =>  "crazy.png",
-  :background_image_url =>  "fifth-background.png"
+  :valid_answer => %{self.match /[8#:]-?[\)\]]|[\(\[]-?[=:8]/}
