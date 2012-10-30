@@ -21,4 +21,4 @@ end
   :code_help => %q{Imagine you are in love with expressive code, and now it's time to improve the Face class trying to create these normalized way to talk about faces in the code. Remember each piece of your face should be part of these beautiful composition. To return the own composition you can use self to refer to the own face},
  :valid_answer => %q{return self << USES[$2.to_sym] if name =~ /^(with|and)_(.*)/},
   :tags =>  "ruby ascog",
-  :image_url =>  "feliz.png"
+  :image_url =>  "decepcionado.png"

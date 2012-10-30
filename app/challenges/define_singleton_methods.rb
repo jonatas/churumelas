@@ -23,4 +23,4 @@ end
 },
 :code_help => "on Class there's a method define_singleton_method can help you do it. It accepts the method name and a block to method implementation. If you're afraid but curious about, please take a look at master: https://github.com/jonatas/churumelas/blob/master/app/challenges/all.rb, I really copied from it.",
 :valid_answer => %q{challenge.define_singleton_method opt, lambda { with_value }},
-:image_url => "logo-yellow.png"
+:image_url => "feliz.png"

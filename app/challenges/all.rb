@@ -1,3 +1,4 @@
+require "sandbox"
 Challenges = [ ]
 def challenge opts
   challenge = Class.new
@@ -6,6 +7,18 @@ def challenge opts
     challenge.define_singleton_method opt, lambda { with_value }
   end
   challenge.define_singleton_method :to_s, lambda { [self.level,self.title].join(" - ") }
+
+  if not challenge.code_challenge.include? GameChallenge::COMMENT
+    puts 'You forgot to put # your code here in the code'
+    puts __FILE__
+    puts challenge.code_challenge
+    puts caller
+    raise 'wtf!'
+  end
+  if challenge.respond_to? :right_answer
+     compiled_valid_code = challenge.code_challenge.gsub(GameChallenge::COMMENT, challenge.right_answer)
+     Sandbox.new.eval compiled_valid_code
+  end
   Challenges << challenge
 end
 Challenges.class_eval do
@@ -25,6 +38,8 @@ challenges = %w(
   cog_job_face_builder_with_noose
   cog_job_face_builder_starting_for_fun
   define_singleton_methods
+  print_multiple_of_n
+  split_my_email
 ) # TODO: erase these line when it grow up to 100 challenges
 challenges.reverse! if Rails.env.development? #I'm aways developing the last challenge
 challenges.each do |challenge|
