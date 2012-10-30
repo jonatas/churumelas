@@ -14,4 +14,4 @@ end},
   :code_help =>%q{Imagine the ASCOG Inc. is loving your work! Now, the support bring some new eyes that need to be recognized by or own method. Rebember, to use groups like: `/\$(?<dollars>\d+)\.(?<cents>\d+)/.match("$3.67")`},
   :tags =>  "ruby regexp ascog",
   :image_url =>  "amigo-esperando.png",
-  :background_image_url =>  "fourth-background.png"
+  :valid_answer =>  "self.match /[#:8=]-?[\\)\\]]/
