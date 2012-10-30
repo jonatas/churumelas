@@ -14,4 +14,4 @@ end},
    :code_help => %q{Imagine the ASCOG Inc. is so pragmatic and you need to use the best solution around it. Remember the noose is an alternative. I expect you use String#match? method.},
   :tags =>  "ruby regexp ascog",
   :image_url =>  "amigo-esperando.png",
-  :background_image_url =>  "third-background.png"
+  :valid_answer => "self.match /[#:8=]-?[\\)\\]]/"
