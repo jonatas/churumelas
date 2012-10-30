@@ -11,5 +11,6 @@ challenge :title => "multiple(2) # => [2,4,6,8,10...",
     raise "doesn't work with n = 2"
   end
 },
-  :code_help => "you need to collect from 1 to 10 each number multiplied by n.", 
-  :image_url => "feliz.png"
+  :code_help => "you need to collect from 1 to 10 each number multiplied by n.",
+  :image_url => "feliz.png",
+  :valid_answer => %q{(1..10).collect {|e|e * n}}

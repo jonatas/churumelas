@@ -8,4 +8,4 @@ end},
   :code_help  =>  %q{Your code will be replaced on "# your code here" tag. Now proceed typing start},
   :tags  =>  "ruby beginner",
   :image_url  =>  "feliz.png",
-  :background_image_url  =>  "start-background.png"
+  :valid_answer =>  "start"
