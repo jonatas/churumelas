@@ -1,13 +1,12 @@
 Churumelas::Application.routes.draw do
   get "game/start"
+  match "game/level/:current_level" => "game#level"
   get "about_us" => 'game#about_us'
   post "game/answer"
   post "game/start_typing"
 
   get "game/next_level"
-
   get "game/finish"
-
   get "game/scores"
 
   # The priority is based upon order of creation:

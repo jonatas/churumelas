@@ -1,5 +1,6 @@
 require "sandbox"
 class GameChallenge < ActiveRecord::Base
+  COMMENT = '# your code here'
   belongs_to :game
   delegate :correct_answer, :code_challenge, :to => :challenge
   attr_accessible :pass_level_at, :start_typing_at, :started_at, :submit_first_time_at
@@ -29,6 +30,7 @@ class GameChallenge < ActiveRecord::Base
    pass_level_at - started_at  if pass_level_at
   end
   def compute_score
+    self.started_at ||= Time.now
     #puts "return 0 if not #{last_answer.nil?} or not #{pass_level_at.nil?} or not #{start_typing_at.nil?}"
     if not self.last_answer or not pass_level_at or not start_typing_at
       return self.score = 0
@@ -46,7 +48,7 @@ class GameChallenge < ActiveRecord::Base
   protected
   def valuate_code_safe answer
     self.last_answer = answer
-    self.compiled_challenge = code_challenge.gsub('# your code here', answer)
+    self.compiled_challenge = code_challenge.gsub(COMMENT, answer)
     # your code here
     logger.info "Evaluating... with #{answer}"
     logger.info self.compiled_challenge
