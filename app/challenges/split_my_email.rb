@@ -8,5 +8,6 @@ elsif domain != "gmail.com"
  raise "ops! domain: #{domain} incorrect!"
 end},
  :code_help => "There's a cool method named split in the string. These method will help you do the job. If you're into the wild can do with regular expressions too. I strongly advice to use the easy way with split method.",
- :right_answer => "split('@')",
- :image_url => "euforico.png"
+ :valid_answer => "split('@')",
+ :image_url => "euforico.png",
+ :tags => "ruby, beginner"

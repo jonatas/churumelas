@@ -2,7 +2,7 @@ require "sandbox"
 class GameChallenge < ActiveRecord::Base
   COMMENT = '# your code here'
   belongs_to :game
-  delegate :correct_answer, :code_challenge, :to => :challenge
+  delegate :right_answer, :code_challenge, :to => :challenge
   attr_accessible :pass_level_at, :start_typing_at, :started_at, :submit_first_time_at
   attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace, :last_answer, :level, :score
   before_save :compute_score
@@ -38,7 +38,7 @@ class GameChallenge < ActiveRecord::Base
     return self.score = 
     ( 
      (challenge.description.to_s.size +
-             correct_answer.to_s.size + 
+             #correct_answer.to_s.size +
                 last_answer.to_s.size
      ) /
      (read_question_time * write_answer_time)  /
