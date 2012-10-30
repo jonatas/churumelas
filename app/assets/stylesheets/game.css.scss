@@ -51,7 +51,11 @@ input#console {
   text-align: center;
   padding: 15px 15px;
 }
-img.assistant {
+.assistant {
+  position: absolute;
+  right: 0px;
+}
+div.assistant {
   position: absolute;
   right: 0px;
 }
