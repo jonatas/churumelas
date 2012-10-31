@@ -8,4 +8,4 @@ end},
   :code_help  =>  %q{Your code will be replaced on "# your code here" tag. Now put your name on the variable username to see your the score!},
   :tags  =>  "ruby beginner",
   :image_url  =>  "bird.png",
-  :background_image_url  =>  "start-background.png"
+  :valid_answer => %q{@username = "jonatasdp"}

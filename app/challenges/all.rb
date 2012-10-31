@@ -15,10 +15,8 @@ def challenge opts
     puts caller
     raise 'wtf!'
   end
-  if challenge.respond_to? :valid_answer
-     compiled_valid_code = challenge.code_challenge.gsub(GameChallenge::COMMENT, challenge.valid_answer)
-     Sandbox.new.eval compiled_valid_code
-  end
+  compiled_valid_code = challenge.code_challenge.gsub(GameChallenge::COMMENT, challenge.valid_answer)
+  Sandbox.new.eval compiled_valid_code
   Challenges << challenge
 end
 Challenges.class_eval do
