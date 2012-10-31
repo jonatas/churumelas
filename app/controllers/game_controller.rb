@@ -29,6 +29,9 @@ class GameController < ApplicationController
       render 'start'
     end
   end
+  def see_valid_answer
+    render :json => {:valid_answer => Challenges.get_level(params[:current_level].to_i).valid_answer}
+  end
   def start_typing
     if not @game_challenge.start_typing_at 
       @game_challenge.start_typing_at = Time.now

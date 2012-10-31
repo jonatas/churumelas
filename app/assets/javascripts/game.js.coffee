@@ -7,8 +7,14 @@ $ ->
   $('#console').keyup ->
     input_value = $('#console').val()
     if input_value.length > 0 and not window.console.started_typing
-       $.post '/game/start_typing', {now: new Date()}, 
+       $.post '/game/start_typing', {now: new Date()},
          ->
            window.console.started_typing = true
          , 'json'
   $('#console').focus()
+  window.seeAnswer = ->
+      $.get '/game/see_valid_answer/'+ $('#current_level').val(),
+        (result) ->
+          $('#console').val(result.valid_answer)
+  setTimeout("if ($('#console').val() == ''){ seeAnswer()}",120000)
+  $('#see_answer').on('click', window.seeAnswer)

@@ -3,6 +3,7 @@ Churumelas::Application.routes.draw do
   match "game/level/:current_level" => "game#level"
   get "about_us" => 'game#about_us'
   post "game/answer"
+  match "game/see_valid_answer/:current_level" => "game#see_valid_answer"
   post "game/start_typing"
 
   get "game/next_level"
