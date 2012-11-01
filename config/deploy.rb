@@ -20,8 +20,7 @@ role :db,  hostname, :primary => true
 namespace :deploy do
   desc "Restarting jetty_rails"
   task :restart, :except => { :no_release => true } do
-    stop
-    start
+    run "cd #{current_path} && bundle exec mizuno --port 80 -E production -D --restart"
   end
   desc "Stopping mizuno" do
     run "cd #{current_path} && bundle exec mizuno --port 80 -E production -D --stop"
