@@ -15,6 +15,9 @@ $ ->
   window.seeAnswer = ->
       $.get '/game/see_valid_answer/'+ $('#current_level').val(),
         (result) ->
-          $('#console').val(result.valid_answer)
+          valid_code = $('#code_challenge').text().replace('# your code here',result.valid_answer)
+          Rainbow.color valid_code, '#code_challenge',(new_code) ->
+            $('#code_challenge').html(new_code)
+
   setTimeout("if ($('#console').val() == ''){ seeAnswer()}",120000)
   $('#see_answer').on('click', window.seeAnswer)

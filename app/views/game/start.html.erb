@@ -8,7 +8,7 @@
   <%= hidden_field_tag :current_level, @game.current_level %>
   <input type="text" name="console[code]" id="console" value="<%= @game_challenge.last_answer %>" />
 </form>
-<pre data-language='ruby'><%= @game_challenge.code_challenge %></pre>
+<pre id="code_challenge" data-language='ruby'><%= @game_challenge.code_challenge %></pre>
 <% if flash[:error] and @game_challenge and @game_challenge.last_compiling_error %>
  <div id="compiled-challenge">
 <big>
