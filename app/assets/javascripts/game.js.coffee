@@ -13,11 +13,13 @@ $ ->
          , 'json'
   $('#console').focus()
   window.seeAnswer = ->
+      $('#code_challenge').fadeOut 50
       $.get '/game/see_valid_answer/'+ $('#current_level').val(),
         (result) ->
           valid_code = $('#code_challenge').text().replace('# your code here',result.valid_answer)
           Rainbow.color valid_code, '#code_challenge',(new_code) ->
             $('#code_challenge').html(new_code)
+            $('#code_challenge').fadeIn 500
 
   setTimeout("if ($('#console').val() == ''){ seeAnswer()}",120000)
   $('#see_answer').on('click', window.seeAnswer)
