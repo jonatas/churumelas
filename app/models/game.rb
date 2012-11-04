@@ -24,8 +24,12 @@ class Game < ActiveRecord::Base
   def score
     game_challenges.sum &:score
   end
+  def to_s
+    "<Game id: #{id}, level: #{self.current_level}, score: #{self.score} >"
+  end
   private
   def start_this! challenge
     self.game_challenges.find_or_create_by_level(challenge.level)
   end
+
 end

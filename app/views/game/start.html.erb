@@ -1,7 +1,5 @@
-<% if @game_challenge.game.score > 0 %>
-<div id="score"><%= @game_challenge.game.score %></div>
-<% end %>
 <pre class="title big" data-language="ruby"><%= @challenge.title %></pre>
+<%= image_tag @challenge.image_url, :class => "assistant" %></a>
 <p class="description"><%= h @challenge.description %></p>
 <form action="/game/answer" method="post">
   <%=token_tag(nil) %>
@@ -24,5 +22,4 @@
     <%= @challenge.code_help %>
   </p>
 </small>
-<%= image_tag @challenge.image_url, :class => "assistant" %></a>
-<div class="assistant">Game: <%= @game.id %> # level <%=@game.current_level %></div>
+<div class="bottom left"><pre class='small' data-language="ruby"><%= @game %></pre></div>

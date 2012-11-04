@@ -6,6 +6,7 @@ class GameChallenge < ActiveRecord::Base
   attr_accessible :pass_level_at, :start_typing_at, :started_at, :submit_first_time_at
   attr_accessible :tries_before_sucess, :last_compiling_error, :last_compiling_error_trace, :last_answer, :level, :score
   before_save :compute_score
+  after_save :update_game_score
   attr_accessor :compiled_challenge, :thread_return
   def challenge
     Challenges.get_level self.level
@@ -35,15 +36,19 @@ class GameChallenge < ActiveRecord::Base
     if not self.last_answer or not pass_level_at or not start_typing_at
       return self.score = 0
     end
-    return self.score = 
-    ( 
+    self.score =
+    (
      (challenge.description.to_s.size +
-             #correct_answer.to_s.size +
+      challenge.valid_answer.to_s.size +
                 last_answer.to_s.size
      ) /
-     (read_question_time * write_answer_time)  /
+     (read_question_time + write_answer_time)  /
             tries_before_sucess
     ).to_i.abs
+    logger.debug "Game: ##{game_id} - Score for level #{self.level}"
+    logger.debug "Game: ##{game_id} - ((challenge.description.to_s.size + valid_answer.to_s.size + last_answer.to_s.size) / (read_question_time + write_answer_time)  / tries_before_sucess).to_i.abs"
+    logger.debug "Game: ##{game_id} - #{self.score} = ( ( #{ challenge.description.to_s.size } + #{challenge.valid_answer.to_s.size} + #{last_answer.to_s.size} ) / (#{read_question_time} + #{write_answer_time})  / #{ tries_before_sucess }).to_i.abs"
+    return self.score
   end
   protected
   def valuate_code_safe answer
@@ -67,5 +72,9 @@ class GameChallenge < ActiveRecord::Base
       self.last_compiling_error_trace = e.message, e.backtrace.inspect 
 
     logger.warn "ops! #{e.message} on challenge ##{self.id}"
+  end
+  def update_game_score
+    game.score += compute_score
+    game.save
   end
 end

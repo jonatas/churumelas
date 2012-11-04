@@ -19,6 +19,9 @@ body {
   margin-left: $title_left;
   font-size: 170%;
 }
+pre.small {
+  font-size: 10px;
+}
 #logo {
   float: left;
   width: 10%;
@@ -51,7 +54,7 @@ input#console {
   text-align: center;
   padding: 15px 15px;
 }
-.assistant {
+.right {
   position: absolute;
   right: 0px;
 }
@@ -60,6 +63,8 @@ div.assistant {
   right: 0px;
 }
 img.assistant {
+  position: absolute;
+  right: 0px;
   top: 20px;
 }
 .about-us {
@@ -77,9 +82,6 @@ img.assistant {
 .eliegejachini {
   left: 50%;
 }
-.rumble {
-  padding-top: 200px;
-}
 .rumble, .footer {
   position: absolute;
   right: 50%;
@@ -88,4 +90,9 @@ img.assistant {
 }
 .compiled {
   background: #0B1022;
+}
+.bottom {
+  position: absolute;
+  width: 350px;
+  bottom: 0px;
 }
