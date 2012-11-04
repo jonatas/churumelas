@@ -58,7 +58,9 @@ class GameController < ApplicationController
       params[:current_level] = 1
     else
       @game = Game.find session[:game_id]
-      params[:current_level] = @game.current_level
+      if not params[:current_level]
+        params[:current_level] = @game.current_level
+      end
     end
     @game_challenge = @game.get_level!(params[:current_level].to_i)
     @challenge = @game.current_challenge
