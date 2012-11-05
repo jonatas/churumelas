@@ -7,6 +7,12 @@ $console_height: 30px;
 $title_left: 10%;
 $console_width: 70%;
 
+@mixin cool_hover($scale:1.5, $rotation: -5deg) {
+  -webkit-transform: scale($scale) rotate($rotation);
+  -moz-transform: scale($scale) rotate($rotation);
+  transform: scale($scale) rotate($rotation);
+}
+
 body {
     background-color: $black;
     color: darken($white, 9%);
@@ -71,6 +77,7 @@ img.assistant {
   padding-top: 20px;
   width: 100%;
   text-align: center;
+  @include cool_hover(1.0,180deg);
 }
 .jonatasdp, .eliegejachini {
   position: absolute;
@@ -95,4 +102,11 @@ img.assistant {
   position: absolute;
   width: 350px;
   bottom: 0px;
+}
+
+a > img:hover {
+  @include cool_hover(0.9,+90deg);
+}
+img:hover {
+  @include cool_hover(1.2,+2deg);
 }
