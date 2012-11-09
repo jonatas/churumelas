@@ -2,13 +2,13 @@ challenge :title => "Metaprogramming.start!",
   :description => "It's time to show me your skill's on metaprogramming cool features in ruby. Let's try to get the java man that exists into yourself trying to reproduce a final class throwing an exception when it was inherited from final classes.",
   :code_challenge => %q{
 class YouCantDoIt < RuntimeError; end
-class OpenedForever
+class ClosedForever
   # your code here
     raise YouCantDoIt.new "#{self} can't be #{subclass}"
   end
 end
 begin
-  class Closed < OpenedForever
+  class Opened < ClosedForever
   end
   raise "your implementation fail! it shouldn't work"
 rescue YouCantDoIt
