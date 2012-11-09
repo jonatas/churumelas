@@ -40,6 +40,7 @@ challenges = %w(
   split_my_email
   metaprogramming_crazy_things
   metaprogramming_crazy_methods
+  metaprogramming_crazy_variables
 ) # TODO: erase these line when it grow up to 100 challenges
 challenges.reverse! if Rails.env.development? #I'm aways developing the last challenge
 challenges.each do |challenge|

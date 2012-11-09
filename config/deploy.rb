@@ -6,7 +6,6 @@ set :bundle_flags,               "--deployment"
 set :application,                "churumelas"
 set :hostname,                   "churumelas.ideia.me"
 set :deploy_to,                  "/var/www/apps/churumelas"
-set :normalize_asset_timestamps, false
 set :rvm_type, :system
 set :rails_env,                  "production"
 set :user,                       "root"
