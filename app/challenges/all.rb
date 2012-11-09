@@ -38,6 +38,7 @@ challenges = %w(
   define_singleton_methods
   print_multiple_of_n
   split_my_email
+  metaprogramming_crazy_things
 ) # TODO: erase these line when it grow up to 100 challenges
 challenges.reverse! if Rails.env.development? #I'm aways developing the last challenge
 challenges.each do |challenge|
