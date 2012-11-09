@@ -25,8 +25,7 @@ class GameController < ApplicationController
         redirect_to "/game/level/#{@game.current_level}"
       end
     else
-      flash[:error] = @game_challenge.last_compiling_error
-      render 'start'
+      redirect_to "/game/level/#{@game.current_level}", :flash => {:error => @game_challenge.last_compiling_error }
     end
   end
   def see_valid_answer

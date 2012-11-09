@@ -1,22 +1,12 @@
 <pre class="title big" data-language="ruby"><%= @challenge.title %></pre>
 <%= image_tag @challenge.image_url, :class => "assistant" %></a>
 <p class="description"><%= h @challenge.description %></p>
-<form action="/game/answer" method="post">
+<form action="/game/answer" method="post"  autocomplete="off">
   <%=token_tag(nil) %>
   <%= hidden_field_tag :current_level, @game.current_level %>
   <input type="text" name="console[code]" id="console" value="<%= @game_challenge.last_answer %>" />
 </form>
-<pre id="code_challenge" data-language='ruby'><%= @game_challenge.code_challenge %></pre>
-<% if flash[:error] and @game_challenge and @game_challenge.last_compiling_error %>
- <div id="compiled-challenge">
-<big>
- <em>Your compiled code with errors...</em>
-</big>
-<pre class="compiled" data-language='ruby'>
-<%= @game_challenge.compiled_challenge %>
-</pre>
-</div>
-<% end %>
+<pre id="code_challenge" data-language='ruby'><%= @game_challenge.compiled_challenge || @game_challenge.code_challenge %></pre>
 <small title="to desist, click here to fill the correct answer... or wait 2 minutes without try anything ;)" id="see_answer">
   <p class="help description">
     <%= @challenge.code_help %>
