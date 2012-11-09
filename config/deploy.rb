@@ -18,13 +18,8 @@ role :app, hostname
 role :db,  hostname, :primary => true
 
 namespace :deploy do
-  desc "Restarting jetty_rails"
-  task :restart, :except => { :no_release => true } do
-    stop
-    start
-  end
   desc "Stopping mizuno" do
-    run "cd #{current_path} && bundle exec mizuno --port 80 -E production -D --stop"
+    run "cd #{current_path} && mizuno --stop"
   end
   desc "Starting mizuno"
   task :start  do
@@ -34,5 +29,3 @@ namespace :deploy do
       #run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
   #end
 end
-
-
