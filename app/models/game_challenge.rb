@@ -58,7 +58,9 @@ class GameChallenge < ActiveRecord::Base
     logger.info "Evaluating... with #{answer}"
     logger.info self.compiled_challenge
     begin
-      Sandbox.new.eval self.compiled_challenge
+      @sandbox = Sandbox.new
+      @sandbox.load "# encoding: utf-8"
+      @sandbox.eval self.compiled_challenge
       self.thread_return = true
       return true
     rescue  Exception => e

@@ -16,7 +16,7 @@ $ ->
          , 'json'
 
   updateCodeChallenge = (with_code) ->
-    valid_code = window.original_code.replace('# your code here',with_code)
+    valid_code = window.original_code.replace(/# (your code here|seu codigo aqui)/,with_code)
     Rainbow.color valid_code, '#code_challenge',(new_code) ->
       $('#code_challenge').html(new_code)
 
@@ -26,4 +26,4 @@ $ ->
           updateCodeChallenge result.valid_answer
 
   setTimeout("if ($('#console').val() == ''){ seeAnswer()}",120000)
-  $('#see_answer').on('click', window.seeAnswer)
+  $('#see_answer').on('click', seeAnswer)

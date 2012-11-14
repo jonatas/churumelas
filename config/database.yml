@@ -4,19 +4,19 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
-  adapter: mysql
+  adapter: postgresql
   database: churumelas
-  username: root
-  password:
+  username: churumelas
+  password: churu
 
 test:
-  adapter: mysql
+  adapter: postgresql
   database: churumelas_test
-  username: root
-  password:
+  username: churumelas
+  password: churu
 
 production:
-  adapter: mysql
+  adapter: postgresql
   database: xurumelas_production
   username: root
   password: 1qazxsw2#$
