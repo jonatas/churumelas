@@ -27,3 +27,6 @@ $ ->
 
   setTimeout("if ($('#console').val() == ''){ seeAnswer()}",120000)
   $('#see_answer').on('click', seeAnswer)
+  #$('.tooltip').each (tip) ->
+    #console.log tip
+    #$(tip).qtip content: $(tip).attr('tooltip'), style: 'dark'
