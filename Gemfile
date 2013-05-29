@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 ruby '1.9.3', :engine => 'jruby', :engine_version => '1.7.4'
 
 gem 'puma'
@@ -37,15 +37,11 @@ gem 'mizuno'
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'
-gem 'capistrano'
 group :production do
   gem 'therubyrhino'
-  gem 'rvm-capistrano'
 end
 group :test do
   gem "guard-jruby-rspec"
