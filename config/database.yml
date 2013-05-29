@@ -17,7 +17,5 @@ test:
 
 production:
   adapter: postgresql
-  database: xurumelas_production
-  username: root
-  password: 1qazxsw2#$
-  socket: /var/run/mysqld/mysqld.sock
+  pool: 5
+  timeout: 5000
