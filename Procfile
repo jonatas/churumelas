@@ -1,2 +1,2 @@
-web: bundle exec bin/puma -p $PORT -e $RACK_ENV
+web: bundle exec bin/puma -p $PORT -e production
 worker: bundle exec rake jobs:work
