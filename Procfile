@@ -1,1 +1,2 @@
-web: bundle exec rails server puma -p $PORT -e $RACK_ENV
+web: bundle exec ruby config.ru
+worker: bundle exec rake jobs:work
