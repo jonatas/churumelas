@@ -1,0 +1,1 @@
+Churumelas::Application.initialize!
