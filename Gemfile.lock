@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    RedCloth (4.2.9)
     RedCloth (4.2.9-java)
     actionmailer (3.2.8)
       actionpack (= 3.2.8)
@@ -57,17 +56,11 @@ GEM
       gherkin (~> 2.11.0)
       json (>= 1.4.6)
     diff-lcs (1.1.3)
-    em-proxy (0.1.8)
-      eventmachine
     erubis (2.7.0)
-    eventmachine (1.0.3-java)
     execjs (1.4.0)
       multi_json (~> 1.0)
     fakefs (0.4.0)
-    ffi (1.1.5)
     ffi (1.1.5-java)
-    gherkin (2.11.5)
-      json (>= 1.4.6)
     gherkin (2.11.5-java)
       json (>= 1.4.6)
     guard (1.4.0)
@@ -79,11 +72,6 @@ GEM
     guard-rspec (2.1.0)
       guard (>= 1.1)
       rspec (~> 2.11)
-    heroku-forward (0.3.1)
-      em-proxy (>= 0.1.8)
-      ffi
-      i18n (~> 0.6)
-      spoon (~> 0.0.1)
     hike (1.2.1)
     hoe (3.1.0)
       rake (~> 0.8)
@@ -101,7 +89,6 @@ GEM
       bouncy-castle-java (>= 1.5.0146.1)
     jruby_sandbox (0.1.3-java)
       fakefs
-    json (1.7.5)
     json (1.7.5-java)
     listen (0.5.3)
     mail (2.4.4)
@@ -124,8 +111,6 @@ GEM
       rubigen (>= 1.5.2)
       syntax (>= 1.0.0)
     polyglot (0.3.3)
-    puma (2.0.1)
-      rack (>= 1.1, < 2.0)
     puma (2.0.1-java)
       rack (>= 1.1, < 2.0)
     rack (1.4.1)
@@ -170,8 +155,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    spoon (0.0.4)
-      ffi
     sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -202,7 +185,6 @@ DEPENDENCIES
   autotest-standalone
   coffee-rails (~> 3.2.1)
   guard-jruby-rspec
-  heroku-forward
   jetty-rails
   jquery-rails
   jruby-openssl
