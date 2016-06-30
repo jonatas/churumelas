@@ -45,8 +45,5 @@ group :production do
 end
 group :test do
   gem "guard-jruby-rspec"
-  gem 'rb-fsevent', '~> 0.9.1'
   gem 'autotest-standalone'
-  gem 'autotest-fsevent'
-  gem 'autotest-growl'
 end
