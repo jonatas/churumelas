@@ -24,14 +24,26 @@ Challenges.class_eval do
     raise "There's no level #{level} on #{Challenges.collect(&:level).inspect}"
   end
 end
-GameChallenge::COMMENT = "# seu codigo aqui"
+
+GameChallenge::COMMENT = "# Your code here"
+
 challenges = %w(
-  iniciar
-  zerar_terceira_coluna_da_matriz
-  calcular_soma_da_terceira_coluna_da_matriz
-  trocar_segunda_linha_pela_quarta
-  multiplicar_pela_escalar_3
-) # TODO: erase these line when it grow up to 100 challenges
+  start
+  split_my_email
+  set_your_username
+  do_you_wanna_continue
+  cog_job_is_for_you
+  cog_job_face_builder_starting_for_fun
+  cog_job_face_builder_with_noose
+  cog_job_recognize_different_smiles
+  cog_job_recognize_different_smiles_and_eyes
+  cog_job_recognize_smiles_in_reverse_mode
+  define_singleton_methods
+  metaprogramming_crazy_methods
+  metaprogramming_crazy_things
+  metaprogramming_crazy_variables
+  print_multiple_of_n
+)
 challenges.each do |challenge|
-  require "unisep/#{challenge}"
+  require challenge
 end
