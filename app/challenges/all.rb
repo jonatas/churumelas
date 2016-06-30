@@ -25,7 +25,7 @@ Challenges.class_eval do
   end
 end
 
-GameChallenge::COMMENT = "# Your code here"
+GameChallenge::COMMENT = "# your code here"
 
 challenges = %w(
   start
